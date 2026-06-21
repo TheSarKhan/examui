@@ -6,6 +6,18 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 const dist = join(root, "dist");
 
+const PAGE_CONTEXT = {
+  giri_login_s_hif_si: "auth",
+  candidate_landing_page: "candidate",
+  exam_experience: "candidate",
+  review_answers_experience: "candidate",
+  i_stifad_i_profili: "employee",
+  bildiri_m_rk_zi: "employee",
+  employee_personal_hub: "employee",
+  assessment_results_summary: "admin",
+  error_404_page_not_found: "admin",
+};
+
 const PAGE_META = {
   admin_command_center: { title: "Admin Dashboard", group: "Admin" },
   analytics_reports_dashboard: { title: "Analytics & Reports", group: "Admin" },
@@ -27,6 +39,31 @@ const PAGE_META = {
 function extractTitle(html) {
   const match = html.match(/<title>([^<]+)<\/title>/i);
   return match ? match[1].trim() : "AssessCore";
+}
+
+function preparePageHtml(html, slug) {
+  const context = PAGE_CONTEXT[slug] ?? "admin";
+  let output = html;
+
+  if (/<body[^>]*>/i.test(output)) {
+    output = output.replace(/<body([^>]*)>/i, (match, attrs) => {
+      let next = attrs;
+      if (!/data-proto-context=/i.test(next)) {
+        next += ` data-proto-context="${context}"`;
+      }
+      if (!/data-proto-page=/i.test(next)) {
+        next += ` data-proto-page="${slug}"`;
+      }
+      return `<body${next}>`;
+    });
+  }
+
+  const injection = '<script src="/proto-nav.js"></script>';
+  if (!output.includes("proto-nav.js")) {
+    output = output.replace(/<\/body>/i, `${injection}\n</body>`);
+  }
+
+  return output;
 }
 
 function buildPages() {
@@ -113,16 +150,35 @@ function writeHubIndex(pages) {
       <p class="text-sm uppercase tracking-widest text-white/70">AssessCore</p>
       <h1 class="mt-sm text-3xl font-bold">Corporate Assessment Platform</h1>
       <p class="mt-md max-w-2xl text-white/80">Static UI prototype. Choose a screen below or start from the candidate landing page.</p>
-      <a href="/candidate_landing_page/" class="mt-lg inline-flex items-center rounded-lg bg-[#58bcfd] px-lg py-sm font-semibold text-[#004a6d] transition hover:opacity-90">
-        Open Candidate Landing
+      <div class="mt-lg flex flex-wrap gap-md">
+      <a href="/" class="inline-flex items-center rounded-lg bg-[#58bcfd] px-lg py-sm font-semibold text-[#004a6d] transition hover:opacity-90">
+        Namizəd axını
       </a>
+      <a href="/giri_login_s_hif_si/" class="inline-flex items-center rounded-lg border border-white/30 px-lg py-sm font-semibold text-white transition hover:bg-white/10">
+        Admin girişi
+      </a>
+      <a href="/employee_personal_hub/" class="inline-flex items-center rounded-lg border border-white/30 px-lg py-sm font-semibold text-white transition hover:bg-white/10">
+        İşçi paneli
+      </a>
+      </div>
     </header>
     ${groupHtml}
   </main>
 </body>
 </html>`;
 
-  writeFileSync(join(dist, "index.html"), html, "utf8");
+  mkdirSync(join(dist, "hub"), { recursive: true });
+  writeFileSync(join(dist, "hub", "index.html"), html, "utf8");
+}
+
+function writeRootIndex(pages) {
+  const candidate = pages.find((page) => page.slug === "candidate_landing_page");
+  if (!candidate) {
+    throw new Error("candidate_landing_page is required for the site root.");
+  }
+
+  const html = readFileSync(candidate.source, "utf8");
+  writeFileSync(join(dist, "index.html"), preparePageHtml(html, candidate.slug));
 }
 
 function main() {
@@ -133,17 +189,23 @@ function main() {
 
   const pages = buildPages();
 
+  const protoNavSource = join(__dirname, "proto-nav.js");
+  cpSync(protoNavSource, join(dist, "proto-nav.js"));
+
   for (const page of pages) {
     const targetDir = join(dist, page.slug);
     mkdirSync(targetDir, { recursive: true });
-    cpSync(page.source, join(targetDir, "index.html"));
+    const html = readFileSync(page.source, "utf8");
+    writeFileSync(join(targetDir, "index.html"), preparePageHtml(html, page.slug));
   }
 
   const notFoundSource = join(root, "error_404_page_not_found", "code.html");
   if (existsSync(notFoundSource)) {
-    cpSync(notFoundSource, join(dist, "404.html"));
+    const html = readFileSync(notFoundSource, "utf8");
+    writeFileSync(join(dist, "404.html"), preparePageHtml(html, "error_404_page_not_found"));
   }
 
+  writeRootIndex(pages);
   writeHubIndex(pages);
 
   console.log(`Built ${pages.length} pages into dist/`);
