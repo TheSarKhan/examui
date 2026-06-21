@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="az"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sual Bankı - AssessCore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#44474e",
+                        "outline": "#75777f",
+                        "on-secondary-fixed-variant": "#004b6f",
+                        "secondary-fixed-dim": "#8ccdff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface": "#fbf8fc",
+                        "tertiary": "#231400",
+                        "tertiary-fixed": "#ffddb1",
+                        "on-surface": "#1b1b1e",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c5c6cf",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fbf8fc",
+                        "surface-container-highest": "#e4e2e5",
+                        "inverse-surface": "#303033",
+                        "surface-container-high": "#e9e7eb",
+                        "on-tertiary-fixed-variant": "#5d4217",
+                        "on-tertiary-container": "#b08d5b",
+                        "tertiary-fixed-dim": "#e8c08a",
+                        "on-secondary-container": "#004a6d",
+                        "surface-container": "#efedf0",
+                        "on-primary-fixed": "#081b3a",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#cae6ff",
+                        "on-background": "#1b1b1e",
+                        "surface-dim": "#dbd9dc",
+                        "on-secondary-fixed": "#001e2f",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-variant": "#e4e2e5",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#364768",
+                        "background": "#fbf8fc",
+                        "primary-container": "#1a2b4b",
+                        "tertiary-container": "#3e2700",
+                        "secondary-container": "#58bcfd",
+                        "on-primary-container": "#8293b8",
+                        "surface-tint": "#4e5e81",
+                        "primary-fixed-dim": "#b6c6ef",
+                        "inverse-primary": "#b6c6ef",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3f6",
+                        "primary": "#031635",
+                        "on-tertiary-fixed": "#291800",
+                        "secondary": "#006492",
+                        "inverse-on-surface": "#f2f0f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "margin-desktop": "40px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "sidebar-width": "280px",
+                        "md": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbf8fc; /* background */
+        }
+        
+        /* Ambient shadow utility for cards */
+        .ambient-shadow {
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen flex flex-col p-md z-40 bg-primary text-on-primary w-sidebar-width shadow-xl hidden md:flex">
+<!-- Brand Header -->
+<div class="flex items-center gap-md mb-xl px-sm">
+<div class="w-10 h-10 rounded bg-on-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-container" data-weight="fill" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-black text-on-primary tracking-tight">AssessCore</h1>
+<p class="font-label-md text-label-md text-on-primary/70 uppercase">Global Controller</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-xs">
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>Assessments</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm border-l-4 border-secondary transition-all duration-200 ease-in-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">database</span>
+<span>Question Bank</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg font-label-md text-label-md mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<!-- CTA & Footer -->
+<div class="mt-lg pt-lg border-t border-on-primary/10 flex flex-col gap-sm">
+<button class="w-full bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors py-sm px-md rounded-lg font-label-md text-label-md flex items-center justify-center gap-sm shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                Launch New Assessment
+            </button>
+<div class="flex flex-col gap-xs mt-sm">
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col md:ml-sidebar-width min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full md:w-[calc(100%-280px)] z-30 flex justify-between items-center px-lg h-16 bg-surface border-b border-outline-variant shadow-sm transition-all duration-300">
+<!-- Mobile Brand (Visible only on md-down) -->
+<div class="md:hidden flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[24px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
+<span class="font-title-lg text-title-lg font-bold text-primary">AssessCore</span>
+</div>
+<!-- Search Bar (Left aligned per specs) -->
+<div class="hidden md:flex items-center bg-surface-container-low rounded-full px-md py-sm border border-outline-variant w-96 focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary transition-all">
+<span class="material-symbols-outlined text-outline mr-sm">search</span>
+<input class="bg-transparent border-none outline-none focus:ring-0 text-body-md font-body-md text-on-surface w-full placeholder-on-surface-variant" placeholder="Search questions, categories..." type="text"/>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full cursor-pointer active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full cursor-pointer active:scale-95 flex items-center justify-center hidden sm:flex">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full cursor-pointer active:scale-95 flex items-center justify-center hidden sm:flex">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden ml-sm cursor-pointer border border-outline-variant hover:border-secondary transition-colors">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive in a well-lit modern office setting. The lighting is soft and bright, emphasizing a clean, modern aesthetic. The background is slightly out of focus, showing glass partitions and indoor plants. The mood is confident and approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbn5ZorLa9UVm3v-FeTKweGDuqZQcbwJVtSVyMaX5KWqU6aufKm3Fkxk6p1A9bMZtFifbe5BQ8cO-9MCw9PXGpSEENXRilBubiAPk-235bw7XnrT0yfHctKQYlA5C6Du8YDUM4PycRjhUnhyP7aVemnZVUmH80OhVvUNrg7A4JrB-jJjcosOrrBlwKfu11UadBC_DEb-0fZHtsZf-nq-EOqRNwH2hyUXP_U6p3k-_EzRd0BZrTI6sMZPXDc2WY3IbipUn2PDWZTaPU"/>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full cursor-pointer active:scale-95 flex items-center justify-center md:hidden ml-xs">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas (Question Bank Empty State) -->
+<main class="flex-1 mt-16 p-margin-mobile md:p-margin-desktop flex flex-col">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-xl gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface hidden md:block">Sual Bankı</h2>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface md:hidden">Sual Bankı</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Bütün qiymətləndirmə suallarınızı buradan idarə edin.</p>
+</div>
+</div>
+<!-- Empty State Container -->
+<div class="flex-1 flex items-center justify-center">
+<div class="bg-surface-container-lowest rounded-xl ambient-shadow p-xl md:p-[64px] max-w-2xl w-full text-center border border-outline-variant/30 flex flex-col items-center justify-center">
+<!-- Decorative Graphic -->
+<div class="relative w-48 h-48 mb-lg flex items-center justify-center">
+<!-- Abstract Background Blobs -->
+<div class="absolute inset-0 bg-primary-fixed-dim/20 rounded-full blur-2xl animate-pulse"></div>
+<div class="absolute inset-4 bg-secondary-container/30 rounded-full blur-xl"></div>
+<!-- Primary Icon -->
+<div class="w-24 h-24 bg-surface rounded-2xl shadow-sm border border-outline-variant/50 flex items-center justify-center relative z-10 rotate-[-5deg] hover:rotate-0 transition-transform duration-500 ease-out">
+<span class="material-symbols-outlined text-[48px] text-secondary" data-weight="fill">quiz</span>
+</div>
+<!-- Floating secondary elements -->
+<div class="w-12 h-12 bg-surface rounded-lg shadow-sm border border-outline-variant/30 flex items-center justify-center absolute top-4 right-4 z-20 rotate-[15deg]">
+<span class="material-symbols-outlined text-[24px] text-primary">add_notes</span>
+</div>
+<div class="w-10 h-10 bg-surface rounded-full shadow-sm border border-outline-variant/30 flex items-center justify-center absolute bottom-8 left-4 z-20 rotate-[-10deg]">
+<span class="material-symbols-outlined text-[20px] text-tertiary-container">psychology</span>
+</div>
+</div>
+<!-- Text Content -->
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-sm">Hələ ki heç bir sual yoxdur</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-md mx-auto">
+                        Qiymətləndirmələriniz üçün sual bazasını yaratmağa başlayın. Sualları kateqoriyalara ayıra və müxtəlif növlərdə hazırlaya bilərsiniz.
+                    </p>
+<!-- CTA Actions -->
+<div class="flex flex-col sm:flex-row items-center gap-md">
+<button class="bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors py-sm px-lg rounded-lg font-label-md text-label-md flex items-center gap-sm shadow-sm w-full sm:w-auto">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                            İlk Sualı Əlavə Et
+                        </button>
+<button class="bg-transparent text-secondary border border-secondary hover:bg-secondary/5 transition-colors py-sm px-lg rounded-lg font-label-md text-label-md flex items-center gap-sm w-full sm:w-auto">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+                            CSV-dən İdxal Et
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

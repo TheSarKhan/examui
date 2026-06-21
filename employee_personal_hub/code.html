@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employee Dashboard - AssessCore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#efedf0",
+                        "tertiary-fixed": "#ffddb1",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e4e2e5",
+                        "surface": "#fbf8fc",
+                        "secondary-fixed": "#cae6ff",
+                        "on-secondary-container": "#004a6d",
+                        "outline-variant": "#c5c6cf",
+                        "on-surface": "#1b1b1e",
+                        "outline": "#75777f",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#364768",
+                        "inverse-on-surface": "#f2f0f3",
+                        "background": "#fbf8fc",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#44474e",
+                        "tertiary": "#231400",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-fixed": "#001e2f",
+                        "surface-container-low": "#f5f3f6",
+                        "surface-container-highest": "#e4e2e5",
+                        "secondary-fixed-dim": "#8ccdff",
+                        "inverse-surface": "#303033",
+                        "secondary": "#006492",
+                        "primary-fixed-dim": "#b6c6ef",
+                        "on-background": "#1b1b1e",
+                        "surface-dim": "#dbd9dc",
+                        "on-primary-fixed": "#081b3a",
+                        "secondary-container": "#58bcfd",
+                        "on-primary-container": "#8293b8",
+                        "surface-container-high": "#e9e7eb",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#3e2700",
+                        "on-tertiary-fixed-variant": "#5d4217",
+                        "surface-bright": "#fbf8fc",
+                        "primary": "#031635",
+                        "inverse-primary": "#b6c6ef",
+                        "primary-container": "#1a2b4b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#e8c08a",
+                        "on-secondary-fixed-variant": "#004b6f",
+                        "surface-tint": "#4e5e81",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#b08d5b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "xs": "4px",
+                        "sidebar-width": "280px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle Ambient Shadow for Cards */
+        .card-shadow {
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.03);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex">
+<!-- Desktop SideNavBar (from JSON) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-screen flex-col p-md z-40 bg-primary w-sidebar-width shadow-xl transition-all duration-200 ease-in-out">
+<!-- Header -->
+<div class="flex items-center gap-md mb-xl px-sm">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container shrink-0">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist corporate logo featuring geometric shapes in deep blue and teal, set against a pristine white background. The design exudes professionalism, stability, and modern enterprise software aesthetics. The lighting is neutral and even, highlighting the sharp vector-like qualities of the mark." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCr76NRfWfmiE8iZI_4Yea3VQj5YCCpWB4j-8vL73Wy-Mp_yZbYhKVgCnhstv2oRuYQlaXDpRM3wj5V826I1qC5hERLWwC19fUXVq7R6n5zhg_qaKBGS4aeSEPndgcazx7q8xCOsknywKLCF7u4GvNKboryDbhCr9As79zGzrLhMTcTJDGC-T8SF3MfLqYHMfhy_aMQqkbVT1EA7GqLAXe9f2zg7lL9cYwWNrZgQV3QS9lFNkgBiG_EgbGSeQ_SPPcp6Vps0RnFL_v"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-black text-on-primary">AssessCore</span>
+<span class="font-label-md text-label-md text-on-primary/70">Global Controller</span>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex-1 flex flex-col gap-xs overflow-y-auto">
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm border-l-4 border-secondary transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined fill">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-md text-label-md">Assessments</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Employees</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="font-label-md text-label-md">Question Bank</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<!-- CTA & Footer -->
+<div class="mt-auto flex flex-col gap-md pt-lg border-t border-on-primary/10">
+<button class="w-full bg-secondary text-on-secondary rounded-lg px-md py-sm font-label-md text-label-md flex items-center justify-center gap-sm hover:bg-secondary/90 transition-colors">
+<span class="material-symbols-outlined">add</span>
+                Launch New Assessment
+            </button>
+<div class="flex flex-col gap-xs mt-sm">
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-all duration-200 ease-in-out rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Mobile TopNavBar (from JSON) -->
+<header class="md:hidden fixed top-0 w-full z-50 flex justify-between items-center px-lg h-16 bg-surface shadow-sm border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<span class="font-title-lg text-title-lg font-bold text-primary">AssessCore</span>
+</div>
+<div class="flex items-center gap-md text-on-surface-variant">
+<button class="hover:bg-surface-container-high p-sm rounded-full transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:bg-surface-container-high p-sm rounded-full transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 transition-transform">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate employee smiling subtly. The lighting is soft and flattering, emphasizing approachability and competence. The background is a blurred, bright office environment, adhering to a clean, modern aesthetic with hints of blue and teal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd4HXtgL5Kh1hIt2pXvtdRkQSnr7VP6UMoO43r3fKw75fhxc8g4gW8U9jnsRLaaRi8fVfnDH1f6c2EeA1KfG-TKS-lQkknS3KAwXIyQwh9hBJJH0pamWuxTCyaXOSgwgA7N9cOH6LVSZTGbYZvkjFMmTYyokIJJsmgt-plaCpwHKdScF4rGdkpOSDdxRLIbhKVHymYdBzuijBYanhIhrYs8PhxEb5Cae8LolF4jkGKeDAZbKIsPrH3WV6QNbqMAsVGqKpDYTQME4GO"/>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-sidebar-width mt-16 md:mt-0 p-margin-mobile md:p-margin-desktop w-full max-w-[1440px] mx-auto flex flex-col gap-lg">
+<!-- Notification Banner -->
+<div class="bg-secondary-container text-on-secondary-container rounded-lg p-md flex items-start sm:items-center justify-between gap-md card-shadow border border-secondary/20" id="notification-banner">
+<div class="flex items-center gap-sm">
+<div class="bg-surface-container-lowest p-xs rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined fill text-[20px]">assignment_turned_in</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold">New Assessment Assigned</p>
+<p class="font-body-sm text-body-sm opacity-90">"Q3 Information Security Fundamentals" has been added to your queue. Due in 14 days.</p>
+</div>
+</div>
+<button class="text-on-secondary-container hover:bg-surface-container-lowest/30 p-xs rounded-full transition-colors" onclick="document.getElementById('notification-banner').style.display='none'">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Hero Section -->
+<section class="bg-surface-container-lowest rounded-xl p-lg md:p-xl card-shadow border border-surface-variant relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-xl">
+<!-- Decorative Background Element -->
+<div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-primary-fixed/30 to-transparent pointer-events-none"></div>
+<div class="flex flex-col gap-sm relative z-10 w-full md:w-2/3">
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Welcome back, <span class="text-secondary">Alex</span>.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    You have <strong class="text-on-surface">2 assessments pending</strong>. Staying up to date with your compliance ensures a secure and informed workplace. Ready to dive in?
+                </p>
+</div>
+<div class="relative z-10 w-full md:w-1/3 flex justify-start md:justify-end">
+<div class="bg-surface rounded-lg p-md flex items-center gap-md border border-outline-variant/50 w-full md:w-auto">
+<div class="w-12 h-12 rounded-full border-4 border-secondary flex items-center justify-center text-secondary font-headline-md text-headline-md">
+                        2
+                    </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Action Items</span>
+<span class="font-title-lg text-title-lg text-on-surface font-bold">Pending Review</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Assigned to You (Takes 2 columns on large screens) -->
+<section class="lg:col-span-2 flex flex-col gap-md">
+<div class="flex items-center justify-between border-b border-surface-variant pb-xs">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">pending_actions</span>
+                        Assigned to You
+                    </h2>
+<a class="font-label-md text-label-md text-secondary hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Assessment Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-lg card-shadow border border-surface-variant flex flex-col h-full hover:border-secondary transition-colors group">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-error-container text-on-error-container font-label-md text-label-md px-sm py-xs rounded flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">warning</span> High Priority
+                            </div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">arrow_outward</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Fire Safety Protocol 2024</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg flex-grow">Annual mandatory review of emergency evacuation procedures and hazard mitigation.</p>
+<div class="flex flex-col gap-sm border-t border-surface-variant pt-md mt-auto">
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]">calendar_today</span> Due Oct 15</div>
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]">timer</span> 30 Mins</div>
+</div>
+<button class="w-full mt-sm bg-secondary text-on-secondary rounded-lg px-md py-sm font-label-md text-label-md hover:bg-secondary/90 transition-colors">
+                                Start Assessment
+                            </button>
+</div>
+</div>
+<!-- Assessment Card 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-lg card-shadow border border-surface-variant flex flex-col h-full hover:border-secondary transition-colors group">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-surface-container-high text-on-surface-variant font-label-md text-label-md px-sm py-xs rounded flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">info</span> Standard
+                            </div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">arrow_outward</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Q3 Information Security</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg flex-grow">Understanding new phishing vectors and organizational data handling policies.</p>
+<div class="flex flex-col gap-sm border-t border-surface-variant pt-md mt-auto">
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]">calendar_today</span> Due Oct 22</div>
+<div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]">timer</span> 45 Mins</div>
+</div>
+<button class="w-full mt-sm bg-transparent border border-secondary text-secondary rounded-lg px-md py-sm font-label-md text-label-md hover:bg-secondary/5 transition-colors">
+                                Resume
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column Stack -->
+<section class="flex flex-col gap-lg">
+<!-- My History -->
+<div class="bg-surface-container-lowest rounded-lg p-lg card-shadow border border-surface-variant flex flex-col gap-md">
+<div class="flex items-center justify-between border-b border-surface-variant pb-xs">
+<h2 class="font-title-lg text-title-lg text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">history</span>
+                            Recent Results
+                        </h2>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- History Item 1 -->
+<div class="flex items-center justify-between p-sm hover:bg-surface-container rounded-lg transition-colors cursor-pointer">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Tax Reporting Essentials</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Completed Sep 10</span>
+</div>
+<div class="flex items-center gap-xs text-secondary-container bg-primary font-label-md text-label-md px-sm py-xs rounded">
+                                92% <span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="flex items-center justify-between p-sm hover:bg-surface-container rounded-lg transition-colors cursor-pointer">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Workplace Ergonomics</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Completed Aug 24</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant bg-surface-container-high font-label-md text-label-md px-sm py-xs rounded">
+                                Pass <span class="material-symbols-outlined text-[16px]">done</span>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="flex items-center justify-between p-sm hover:bg-surface-container rounded-lg transition-colors cursor-pointer">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Code of Conduct</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Completed Jan 15</span>
+</div>
+<div class="flex items-center gap-xs text-secondary-container bg-primary font-label-md text-label-md px-sm py-xs rounded">
+                                100% <span class="material-symbols-outlined text-[16px]">military_tech</span>
+</div>
+</div>
+</div>
+<button class="text-secondary font-label-md text-label-md hover:underline self-start mt-xs">View Full History</button>
+</div>
+<!-- Growth Path Snippet -->
+<div class="bg-primary text-on-primary rounded-lg p-lg card-shadow flex flex-col gap-md relative overflow-hidden">
+<!-- Subtle background texture pattern via CSS radial gradient -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at 100% 100%, #58bcfd 0%, transparent 60%);"></div>
+<div class="relative z-10 flex items-start justify-between">
+<div class="bg-secondary-container text-on-secondary-container p-xs rounded-lg">
+<span class="material-symbols-outlined text-[24px]">trending_up</span>
+</div>
+</div>
+<div class="relative z-10">
+<h3 class="font-title-lg text-title-lg mb-xs">Growth Path</h3>
+<p class="font-body-sm text-body-sm text-on-primary/80 mb-md">You are 2 modules away from completing your Leadership Foundation track.</p>
+<div class="w-full bg-primary-container rounded-full h-2 mb-sm">
+<div class="bg-secondary-container h-2 rounded-full" style="width: 75%"></div>
+</div>
+<span class="font-label-md text-label-md text-secondary-fixed">75% Complete</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

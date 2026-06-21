@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="az"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Parametrlər - AssessCore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#44474e",
+                        "outline": "#75777f",
+                        "on-secondary-fixed-variant": "#004b6f",
+                        "secondary-fixed-dim": "#8ccdff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface": "#fbf8fc",
+                        "tertiary": "#231400",
+                        "tertiary-fixed": "#ffddb1",
+                        "on-surface": "#1b1b1e",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c5c6cf",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fbf8fc",
+                        "surface-container-highest": "#e4e2e5",
+                        "inverse-surface": "#303033",
+                        "surface-container-high": "#e9e7eb",
+                        "on-tertiary-fixed-variant": "#5d4217",
+                        "on-tertiary-container": "#b08d5b",
+                        "tertiary-fixed-dim": "#e8c08a",
+                        "on-secondary-container": "#004a6d",
+                        "surface-container": "#efedf0",
+                        "on-primary-fixed": "#081b3a",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#cae6ff",
+                        "on-background": "#1b1b1e",
+                        "surface-dim": "#dbd9dc",
+                        "on-secondary-fixed": "#001e2f",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-variant": "#e4e2e5",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#364768",
+                        "background": "#fbf8fc",
+                        "primary-container": "#1a2b4b",
+                        "tertiary-container": "#3e2700",
+                        "secondary-container": "#58bcfd",
+                        "on-primary-container": "#8293b8",
+                        "surface-tint": "#4e5e81",
+                        "primary-fixed-dim": "#b6c6ef",
+                        "inverse-primary": "#b6c6ef",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f3f6",
+                        "primary": "#031635",
+                        "on-tertiary-fixed": "#291800",
+                        "secondary": "#006492",
+                        "inverse-on-surface": "#f2f0f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "margin-desktop": "40px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "sidebar-width": "280px",
+                        "md": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="bg-primary text-on-primary font-label-md text-label-md docked left-0 h-full w-sidebar-width bg-primary shadow-xl fixed left-0 top-0 h-screen flex flex-col p-md z-40 hidden md:flex transition-all duration-200 ease-in-out">
+<div class="flex items-center gap-md mb-xl px-sm">
+<div class="w-10 h-10 rounded-lg bg-surface flex items-center justify-center text-primary font-bold text-title-lg">A</div>
+<div>
+<div class="font-headline-md text-headline-md font-black text-on-primary">AssessCore</div>
+<div class="text-on-primary-container font-body-sm text-body-sm">Global Controller</div>
+</div>
+</div>
+<button class="bg-secondary text-on-secondary rounded-lg py-sm px-md mb-xl font-label-md text-label-md hover:bg-secondary-fixed-dim transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span>
+            Launch New Assessment
+        </button>
+<div class="flex-1 flex flex-col gap-xs overflow-y-auto">
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Assessments</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span>Question Bank</span>
+</a>
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm border-l-4 border-secondary transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="mt-auto pt-md border-t border-on-primary/10 flex flex-col gap-xs">
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-[280px] min-h-screen">
+<!-- TopNavBar (Mobile Only) -->
+<header class="bg-surface text-primary font-body-md text-body-md docked full-width top-0 shadow-sm fixed top-0 w-full z-50 flex justify-between items-center px-lg h-16 md:hidden border-b border-outline-variant">
+<div class="font-title-lg text-title-lg font-bold text-primary">AssessCore</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:bg-surface-container-high p-sm rounded-full cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high p-sm rounded-full cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="text-secondary font-bold hover:bg-surface-container-high p-sm rounded-full cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full ml-sm object-cover bg-surface-container" data-alt="A small circular profile picture placeholder showing a generic silhouette avatar icon in a light grey circle on a white background, representing a user profile image in a corporate web application header." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_1sCEfwzmAXv8cYophJas5sjsyeJypCq7HuWYcrB4X92XIDqPCg2ivxDGp7ToXnYJEF0-vSNx4j3TxVVNNJqTHKgVODQ0snTRIg0SKIzRn-58aWQoK71MLB_KspHYnPRmC3hwDvvPw22Mc05efw3bofJzt8U6VjcCMvsMM1F5JGCVdl42P0uRTEVL4qiHjueThF94rXn27vI0ijgwhw7CWFSRe-8RTvyznaJ4uYlT8J0FWJLvsYL8ijXXuQm2NPKzIVL1ZYgT5g4d"/>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-margin-mobile md:p-margin-desktop mt-16 md:mt-0 max-w-[1440px] mx-auto w-full">
+<div class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-on-background mb-xs">Parametrlər</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Şirkətinizin sistem tənzimləmələrini, təhlükəsizlik və inteqrasiya seçimlərini idarə edin.</p>
+</div>
+<!-- Main Layout: Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Settings Navigation (Tabs / Vertical) -->
+<div class="lg:col-span-3">
+<div class="bg-surface rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-surface-container-high p-sm flex flex-col gap-xs sticky top-xl">
+<button class="flex items-center gap-md px-md py-sm rounded-md bg-secondary/10 text-secondary font-title-lg text-title-lg text-left transition-colors">
+<span class="material-symbols-outlined" data-icon="domain" data-weight="fill" style="font-variation-settings: 'FILL' 1;">domain</span>
+<span>Şirkət Profili</span>
+</button>
+<button class="flex items-center gap-md px-md py-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md text-left transition-colors">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span>Təhlükəsizlik</span>
+</button>
+<button class="flex items-center gap-md px-md py-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md text-left transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications_active">notifications_active</span>
+<span>Bildirişlər</span>
+</button>
+<button class="flex items-center gap-md px-md py-sm rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md text-left transition-colors">
+<span class="material-symbols-outlined" data-icon="api">api</span>
+<span>İnteqrasiya</span>
+</button>
+</div>
+</div>
+<!-- Settings Content Area -->
+<div class="lg:col-span-9 flex flex-col gap-xl">
+<!-- Company Profile Section -->
+<section class="bg-surface rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-surface-container-high overflow-hidden">
+<div class="px-lg py-md border-b border-surface-container-high flex items-center justify-between">
+<h2 class="font-title-lg text-title-lg text-on-surface">Şirkət Profili</h2>
+<button class="text-secondary font-label-md text-label-md hover:underline">Redaktə et</button>
+</div>
+<div class="p-lg grid grid-cols-1 md:grid-cols-2 gap-xl">
+<!-- Logo Upload -->
+<div class="col-span-1 md:col-span-2 flex items-start gap-lg">
+<div class="w-24 h-24 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center overflow-hidden shrink-0 relative group cursor-pointer">
+<span class="material-symbols-outlined text-outline text-3xl group-hover:hidden" data-icon="add_photo_alternate">add_photo_alternate</span>
+<div class="absolute inset-0 bg-black/50 hidden group-hover:flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="upload">upload</span>
+</div>
+</div>
+<div class="flex-1 pt-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-xs">Şirkət Loqosu</h3>
+<p class="font-body-sm text-body-sm text-outline mb-md">Tövsiyə olunan ölçü 400x400px. Maksimum fayl ölçüsü 2MB (JPG, PNG).</p>
+<div class="flex gap-sm">
+<button class="bg-surface text-secondary border border-secondary px-md py-sm rounded-lg font-label-md text-label-md hover:bg-secondary/5 transition-colors">Yüklə</button>
+<button class="text-error font-label-md text-label-md px-md py-sm hover:bg-error/5 rounded-lg transition-colors">Sil</button>
+</div>
+</div>
+</div>
+<!-- Form Fields -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Şirkətin Adı</label>
+<input class="w-full bg-surface border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" type="text" value="Acme Corporation"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Sənaye</label>
+<select class="w-full bg-surface border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors appearance-none">
+<option>Texnologiya &amp; Proqram Təminatı</option>
+<option>Maliyyə</option>
+<option>Təhsil</option>
+<option>Səhiyyə</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs col-span-1 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Korporativ Domen</label>
+<input class="w-full bg-surface border border-outline-variant rounded-md px-md py-sm font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" type="text" value="acmecorp.com"/>
+</div>
+</div>
+<div class="bg-surface-container-low px-lg py-md border-t border-surface-container-high flex justify-end">
+<button class="bg-secondary text-on-secondary px-lg py-sm rounded-lg font-label-md text-label-md hover:bg-secondary/90 transition-colors shadow-sm">Yadda Saxla</button>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</body></html>

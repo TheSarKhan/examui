@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="az"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>İşçi və Namizəd İdarəetməsi - AssessCore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#3e2700",
+                      "surface-variant": "#e4e2e5",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#e8c08a",
+                      "on-secondary-fixed-variant": "#004b6f",
+                      "surface-dim": "#dbd9dc",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface-variant": "#44474e",
+                      "on-tertiary-container": "#b08d5b",
+                      "on-secondary-container": "#004a6d",
+                      "on-primary-fixed-variant": "#364768",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#1b1b1e",
+                      "surface-tint": "#4e5e81",
+                      "on-primary-fixed": "#081b3a",
+                      "secondary": "#006492",
+                      "surface-container-highest": "#e4e2e5",
+                      "on-tertiary-fixed": "#291800",
+                      "secondary-fixed": "#cae6ff",
+                      "inverse-primary": "#b6c6ef",
+                      "primary-fixed-dim": "#b6c6ef",
+                      "inverse-on-surface": "#f2f0f3",
+                      "surface-container-low": "#f5f3f6",
+                      "inverse-surface": "#303033",
+                      "surface-container-high": "#e9e7eb",
+                      "primary": "#031635",
+                      "surface-bright": "#fbf8fc",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "secondary-fixed-dim": "#8ccdff",
+                      "primary-container": "#1a2b4b",
+                      "on-background": "#1b1b1e",
+                      "surface-container": "#efedf0",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#ffddb1",
+                      "on-primary-container": "#8293b8",
+                      "tertiary": "#231400",
+                      "outline-variant": "#c5c6cf",
+                      "primary-fixed": "#d8e2ff",
+                      "outline": "#75777f",
+                      "on-primary": "#ffffff",
+                      "background": "#fbf8fc",
+                      "surface": "#fbf8fc",
+                      "on-secondary-fixed": "#001e2f",
+                      "on-tertiary-fixed-variant": "#5d4217",
+                      "secondary-container": "#58bcfd",
+                      "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "xl": "32px",
+                      "sidebar-width": "280px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "unit": "4px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen font-body-md">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-lg h-16 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-sm font-body-md text-body-md text-primary dark:text-primary-fixed ml-sidebar-width hidden md:flex" style="width: calc(100% - 280px);">
+<div class="flex items-center gap-md">
+<!-- Search Bar Area -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" placeholder="Axtar..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button aria-label="Notifications" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="Help" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button aria-label="Settings" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant ml-2">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional corporate headshot of a business executive in a modern office setting. Bright, natural lighting with a clean, high-contrast, modern aesthetic reflecting trust and competence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv7D6-hjlTw6GK0kkPoJeyfhEzC-Gru5QAOBivrhbBbAdrD7E_pBcjmJeRJIgZSPG3b98r0SHEsx6IukTiNMzmV9Ui36J7871Y8Nn5_vTnMVVS7UICeMZ_XC9xo6OG-JTix9PgeEKuiKzsfqsaz2RGuzKa_IUkOO1MhGUb8i8SjqtjXRUfmCUCWrwTYgJ-TPu1HB5HnW2eoyc-IkHFXYMD-QJfNV0zx0FhtBn43uvnL2SNipnvgc2rghwJxIo0Bi6II8gHTyq-I6Yz"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen flex flex-col p-md z-40 bg-primary dark:bg-primary-container shadow-xl w-sidebar-width text-on-primary dark:text-on-primary-container font-label-md text-label-md transition-all duration-200 ease-in-out hidden md:flex">
+<!-- Header -->
+<div class="flex items-center gap-md mb-xl px-sm">
+<div class="w-10 h-10 rounded bg-white flex items-center justify-center font-headline-md text-primary font-bold">
+                A
+            </div>
+<div>
+<h1 class="font-headline-md text-headline-md font-black text-on-primary">AssessCore</h1>
+<p class="text-on-primary/70 text-body-sm mt-xs">Enterprise Admin</p>
+<p class="text-on-primary/50 text-[10px] uppercase tracking-wider mt-xs">Global Controller</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="mb-xl w-full py-3 bg-secondary text-white rounded-lg font-label-md text-label-md hover:bg-secondary/90 transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'FILL' 1;">add</span>
+            Launch New Assessment
+        </button>
+<!-- Main Nav Links -->
+<div class="flex flex-col gap-sm flex-grow">
+<a class="flex items-center gap-md text-on-primary/70 dark:text-on-primary-container/70 px-md py-sm hover:bg-primary-container dark:hover:bg-primary-fixed-dim/20 hover:text-on-primary rounded-lg transition-colors cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 dark:text-on-primary-container/70 px-md py-sm hover:bg-primary-container dark:hover:bg-primary-fixed-dim/20 hover:text-on-primary rounded-lg transition-colors cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                Assessments
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 dark:text-on-primary-container/70 px-md py-sm hover:bg-primary-container dark:hover:bg-primary-fixed-dim/20 hover:text-on-primary rounded-lg transition-colors cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+                Analytics
+            </a>
+<!-- Active Tab -->
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm border-l-4 border-secondary transition-colors cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+                Employees
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 dark:text-on-primary-container/70 px-md py-sm hover:bg-primary-container dark:hover:bg-primary-fixed-dim/20 hover:text-on-primary rounded-lg transition-colors cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+                Question Bank
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 dark:text-on-primary-container/70 px-md py-sm hover:bg-primary-container dark:hover:bg-primary-fixed-dim/20 hover:text-on-primary rounded-lg transition-colors cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+<!-- Footer Nav Links -->
+<div class="flex flex-col gap-sm mt-auto pt-lg border-t border-on-primary/10">
+<a class="flex items-center gap-md text-on-primary/70 dark:text-on-primary-container/70 px-md py-sm hover:bg-primary-container dark:hover:bg-primary-fixed-dim/20 hover:text-on-primary rounded-lg transition-colors cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+                Support
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 dark:text-on-primary-container/70 px-md py-sm hover:bg-primary-container dark:hover:bg-primary-fixed-dim/20 hover:text-on-primary rounded-lg transition-colors cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Mobile Nav Header (Placeholder for mobile layout consistency) -->
+<header class="md:hidden fixed top-0 w-full z-50 bg-primary text-on-primary p-md flex justify-between items-center shadow-md">
+<div class="font-headline-md font-bold">AssessCore</div>
+<button class="material-symbols-outlined">menu</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 md:ml-sidebar-width p-margin-mobile md:p-margin-desktop min-h-screen">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">İşçi və Namizəd İdarəetməsi</h2>
+<p class="text-on-surface-variant font-body-md text-body-md mt-xs">Təşkilatınızdakı bütün işçiləri və potensial namizədləri idarə edin.</p>
+</div>
+<button class="bg-secondary text-white px-lg py-sm rounded-lg font-label-md text-label-md shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:bg-secondary/90 transition-colors flex items-center justify-center gap-sm self-start md:self-auto">
+<span class="material-symbols-outlined text-sm" data-icon="person_add" style="font-variation-settings: 'FILL' 1;">person_add</span>
+                Yeni Namizəd Əlavə Et
+            </button>
+</div>
+<!-- Quick Stats Bento -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<div class="bg-surface-container-lowest rounded-lg p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] flex items-center gap-md border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="groups" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md text-label-md">Cəmi İşçilər</p>
+<p class="font-headline-lg text-headline-lg text-primary">1,248</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] flex items-center gap-md border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="how_to_reg" style="font-variation-settings: 'FILL' 1;">how_to_reg</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md text-label-md">Aktiv Namizədlər</p>
+<p class="font-headline-lg text-headline-lg text-secondary">42</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] flex items-center gap-md border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="task" style="font-variation-settings: 'FILL' 1;">task</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md text-label-md">Tamamlanmış İmtahanlar (Bu ay)</p>
+<p class="font-headline-lg text-headline-lg text-tertiary">386</p>
+</div>
+</div>
+</div>
+<!-- Main Workspace Area -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] overflow-hidden border border-outline-variant/50">
+<!-- Tabs & Filters Header -->
+<div class="border-b border-outline-variant/50 px-lg pt-lg bg-surface-container-low/50">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md mb-4">
+<!-- Tabs -->
+<div class="flex gap-lg border-b border-outline-variant w-full md:w-auto">
+<button class="pb-sm font-label-md text-label-md text-secondary border-b-2 border-secondary px-sm transition-colors uppercase tracking-wider">
+                            Daxili İşçilər
+                        </button>
+<button class="pb-sm font-label-md text-label-md text-on-surface-variant hover:text-primary px-sm transition-colors uppercase tracking-wider">
+                            Namizədlər
+                        </button>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col sm:flex-row gap-sm w-full md:w-auto mt-4 md:mt-0 pb-sm">
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface border border-outline-variant rounded text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors" placeholder="Ad və ya şöbə üzrə axtar..." type="text"/>
+</div>
+<select class="w-full sm:w-auto px-3 py-1.5 bg-surface border border-outline-variant rounded text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none text-on-surface-variant">
+<option value="">Bütün Statuslar</option>
+<option value="active">Aktiv</option>
+<option value="invited">Dəvət Edilib</option>
+<option value="completed">Tamamlanıb</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Table Content -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/50 bg-surface-container-low/30">
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">İşçi</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">Şöbə</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">Son İmtahan</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">Orta Bal</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">Status</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold text-right">Əməliyyatlar</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 text-body-sm font-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-md px-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-xs">
+                                        EH
+                                    </div>
+<div>
+<p class="font-semibold text-primary">Elvin Həsənov</p>
+<p class="text-on-surface-variant text-xs">elvin.h@company.az</p>
+</div>
+</div>
+</td>
+<td class="py-md px-lg text-on-surface">IT Departament</td>
+<td class="py-md px-lg text-on-surface-variant">12 Okt 2023</td>
+<td class="py-md px-lg">
+<span class="px-2 py-1 bg-surface-variant text-on-surface rounded text-xs font-semibold">85 / 100</span>
+</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-1 text-xs font-semibold text-[#166534] bg-[#DCFCE7] px-2 py-1 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                                    Aktiv
+                                </span>
+</td>
+<td class="py-md px-lg text-right">
+<div class="flex justify-end gap-2">
+<button class="text-secondary hover:bg-secondary/10 p-1.5 rounded transition-colors" title="Detallara Bax">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+<button class="text-primary hover:bg-primary/10 p-1.5 rounded transition-colors" title="Yeni İmtahan Təyin Et">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment_add">assignment_add</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-md px-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A small profile portrait of a smiling female corporate professional in a modern office." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdvNqC6ibJnf-2uE2VoNFT25zxLR5DLrDmjsan8xZTlAQP3-zVnJS1cNbXNtpVi1xtRcBHJBduZtUYBzkt0_hmUWvJfuKHT9BUQlsp6xlkweSwHgLK0P9FNKNvz_rePWhbtITterk9HKAbpp6QVXRKHaRg18VC8xPHGXJTAX9gqn1VnPhzPPrezFl4h8GNn3GSiIq_-OMpeD-GGXBcaq_KkEGW7KeqUBP-_i3flteG9vXAs5foSLrmbhf7ssNFHlrnzUkGANMNrN2b"/>
+</div>
+<div>
+<p class="font-semibold text-primary">Aysel Məmmədova</p>
+<p class="text-on-surface-variant text-xs">aysel.m@company.az</p>
+</div>
+</div>
+</td>
+<td class="py-md px-lg text-on-surface">Satış</td>
+<td class="py-md px-lg text-on-surface-variant">05 Noy 2023</td>
+<td class="py-md px-lg">
+<span class="px-2 py-1 bg-surface-variant text-on-surface rounded text-xs font-semibold">92 / 100</span>
+</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-1 text-xs font-semibold text-[#166534] bg-[#DCFCE7] px-2 py-1 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                                    Aktiv
+                                </span>
+</td>
+<td class="py-md px-lg text-right">
+<div class="flex justify-end gap-2">
+<button class="text-secondary hover:bg-secondary/10 p-1.5 rounded transition-colors" title="Detallara Bax">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+<button class="text-primary hover:bg-primary/10 p-1.5 rounded transition-colors" title="Yeni İmtahan Təyin Et">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment_add">assignment_add</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-md px-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-xs">
+                                        RN
+                                    </div>
+<div>
+<p class="font-semibold text-primary">Rəşad Nağıyev</p>
+<p class="text-on-surface-variant text-xs">reshad.n@company.az</p>
+</div>
+</div>
+</td>
+<td class="py-md px-lg text-on-surface">Marketinq</td>
+<td class="py-md px-lg text-on-surface-variant">-</td>
+<td class="py-md px-lg">
+<span class="text-on-surface-variant text-xs">-</span>
+</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center gap-1 text-xs font-semibold text-[#991B1B] bg-[#FEE2E2] px-2 py-1 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-[#991B1B]"></span>
+                                    Qeyri-aktiv
+                                </span>
+</td>
+<td class="py-md px-lg text-right">
+<div class="flex justify-end gap-2">
+<button class="text-secondary hover:bg-secondary/10 p-1.5 rounded transition-colors" title="Detallara Bax">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+<button class="text-primary hover:bg-primary/10 p-1.5 rounded transition-colors" title="Yeni İmtahan Təyin Et">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment_add">assignment_add</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="border-t border-outline-variant/50 p-sm px-lg flex items-center justify-between bg-surface-container-lowest">
+<span class="text-body-sm text-on-surface-variant">1-10 of 1,248 göstərilir</span>
+<div class="flex gap-1">
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-variant rounded transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Candidate Management Section (Bento Box style) -->
+<div class="mt-xl grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Generate Link Card -->
+<div class="bg-primary text-on-primary rounded-xl p-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-sm">
+<span class="material-symbols-outlined" data-icon="link" style="font-variation-settings: 'FILL' 1;">link</span>
+<h3 class="font-title-lg text-title-lg font-semibold">Xarici Namizədlər</h3>
+</div>
+<p class="text-on-primary/80 font-body-sm text-body-sm mb-lg">Sistemdə hesabı olmayan namizədlər üçün birdəfəlik giriş linki yaradın. Linkin etibarlılıq müddətini təyin edə bilərsiniz.</p>
+</div>
+<div class="space-y-sm">
+<button class="w-full bg-white text-primary font-label-md text-label-md py-2 rounded shadow hover:bg-surface-container-lowest transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add_link">add_link</span>
+                        Birdəfəlik Giriş Linki Yarat
+                    </button>
+</div>
+</div>
+<!-- Invited Candidates List -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/50 p-lg">
+<div class="flex justify-between items-center mb-md pb-sm border-b border-outline-variant/30">
+<h3 class="font-title-lg text-title-lg text-primary font-semibold">Aktiv Dəvətlər</h3>
+<a class="text-secondary text-body-sm hover:underline font-semibold" href="#">Hamısına bax</a>
+</div>
+<div class="space-y-sm">
+<!-- Invite Item -->
+<div class="flex items-center justify-between p-sm hover:bg-surface-container-low rounded-lg transition-colors border border-transparent hover:border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="font-semibold text-body-sm text-on-surface">Tural Qasımov (Kiber Təhlükəsizlik)</p>
+<p class="text-xs text-on-surface-variant">tural.q@example.com</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-semibold text-error">Vaxt bitir: 2 gün</p>
+<button class="text-secondary text-xs hover:underline mt-1">Linki kopyala</button>
+</div>
+</div>
+<!-- Invite Item -->
+<div class="flex items-center justify-between p-sm hover:bg-surface-container-low rounded-lg transition-colors border border-transparent hover:border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="font-semibold text-body-sm text-on-surface">Leyla Əliyeva (Maliyyə Analitiki)</p>
+<p class="text-xs text-on-surface-variant">leyla.a@example.com</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant">Vaxt bitir: 5 gün</p>
+<button class="text-secondary text-xs hover:underline mt-1">Linki kopyala</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AssessCore Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#58bcfd",
+                        "inverse-on-surface": "#f2f0f3",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e9e7eb",
+                        "on-tertiary-fixed-variant": "#5d4217",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#4e5e81",
+                        "outline-variant": "#c5c6cf",
+                        "background": "#fbf8fc",
+                        "secondary-fixed-dim": "#8ccdff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbf8fc",
+                        "on-primary-fixed": "#081b3a",
+                        "primary-container": "#1a2b4b",
+                        "on-tertiary-fixed": "#291800",
+                        "on-primary-container": "#8293b8",
+                        "on-tertiary-container": "#b08d5b",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#d8e2ff",
+                        "on-background": "#1b1b1e",
+                        "primary": "#031635",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#44474e",
+                        "inverse-primary": "#b6c6ef",
+                        "on-secondary-container": "#004a6d",
+                        "secondary": "#006492",
+                        "on-secondary-fixed-variant": "#004b6f",
+                        "on-secondary-fixed": "#001e2f",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffddb1",
+                        "tertiary-fixed-dim": "#e8c08a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fbf8fc",
+                        "surface-container-highest": "#e4e2e5",
+                        "tertiary-container": "#3e2700",
+                        "surface-variant": "#e4e2e5",
+                        "secondary-fixed": "#cae6ff",
+                        "surface-container-low": "#f5f3f6",
+                        "surface-container": "#efedf0",
+                        "surface-dim": "#dbd9dc",
+                        "on-surface": "#1b1b1e",
+                        "tertiary": "#231400",
+                        "on-primary-fixed-variant": "#364768",
+                        "primary-fixed-dim": "#b6c6ef",
+                        "inverse-surface": "#303033",
+                        "outline": "#75777f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "sidebar-width": "280px",
+                        "xl": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex items-center justify-center p-md sm:p-gutter">
+<!-- Login Container -->
+<main class="w-full max-w-[480px]">
+<!-- Brand Header -->
+<div class="flex flex-col items-center mb-xl text-center">
+<div class="w-24 h-24 mb-md">
+<img alt="AssessCore Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLtaxBApts24hqg3biGKCz82N2NzkDZwMxdktvJyEa6pGL6j1B03PQeaABFt504i7MtjtSwitjHOx9zmZCnaClZ4Npnnbf-5SX4RPZdcvYSNw9waD9Ab_0lFGlH2HF7JAtNszFFfVRJ8dm_UQ-uTmYDBi_Gx-5-Mv_Pvh4E3Y4dxTrqQZAdG6Rauz1S1lToimLZRxyb1JDpIpbDTnhgsgaVApBRxgWLP0XNydr3maUvyScjaSN_S8Yg2i0iK"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary">AssessCore</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Enterprise Assessment Platform</p>
+</div>
+<!-- Login Card -->
+<div class="bg-surface-container-lowest rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/30 overflow-hidden">
+<div class="p-lg sm:p-xl">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-lg">Sign In</h2>
+<form class="space-y-lg">
+<!-- Email Input -->
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface block" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant/60 pointer-events-none">mail</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-md py-sm pl-10 pr-md font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" id="email" name="email" placeholder="name@company.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface block" for="password">Password</label>
+<a class="font-body-sm text-body-sm text-secondary hover:text-secondary-container transition-colors" href="#">Forgot password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant/60 pointer-events-none">lock</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-md py-sm pl-10 pr-md font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-secondary text-on-secondary rounded-lg py-sm px-lg font-title-lg text-title-lg hover:bg-on-secondary-container transition-colors active:scale-[0.98] mt-xl" type="submit">
+                        Daxil Ol
+                    </button>
+</form>
+<!-- Divider -->
+<div class="relative flex items-center py-lg mt-md">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink-0 mx-4 font-body-sm text-body-sm text-on-surface-variant">or continue with</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- SSO Login -->
+<button class="w-full flex items-center justify-center gap-sm bg-transparent border border-outline-variant text-on-surface rounded-lg py-sm px-lg font-body-md text-body-md hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-primary">corporate_fare</span>
+                    Single Sign-On (SSO)
+                </button>
+</div>
+<!-- Card Footer -->
+<div class="bg-surface-container-low border-t border-outline-variant/30 p-md text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Need an account? <a class="text-secondary hover:underline font-semibold" href="#">Contact Administrator</a>
+</p>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="mt-xl flex justify-center gap-md font-body-sm text-body-sm text-on-surface-variant/70">
+<a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+<span>•</span>
+<a class="hover:text-on-surface transition-colors" href="#">Terms of Service</a>
+<span>•</span>
+<a class="hover:text-on-surface transition-colors" href="#">Help Center</a>
+</div>
+</main>
+</body></html>

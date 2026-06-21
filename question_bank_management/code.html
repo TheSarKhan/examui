@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Question Bank - AssessCore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#efedf0",
+                        "tertiary-fixed": "#ffddb1",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e4e2e5",
+                        "surface": "#fbf8fc",
+                        "secondary-fixed": "#cae6ff",
+                        "on-secondary-container": "#004a6d",
+                        "outline-variant": "#c5c6cf",
+                        "on-surface": "#1b1b1e",
+                        "outline": "#75777f",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#364768",
+                        "inverse-on-surface": "#f2f0f3",
+                        "background": "#fbf8fc",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#44474e",
+                        "tertiary": "#231400",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-fixed": "#001e2f",
+                        "surface-container-low": "#f5f3f6",
+                        "surface-container-highest": "#e4e2e5",
+                        "secondary-fixed-dim": "#8ccdff",
+                        "inverse-surface": "#303033",
+                        "secondary": "#006492",
+                        "primary-fixed-dim": "#b6c6ef",
+                        "on-background": "#1b1b1e",
+                        "surface-dim": "#dbd9dc",
+                        "on-primary-fixed": "#081b3a",
+                        "secondary-container": "#58bcfd",
+                        "on-primary-container": "#8293b8",
+                        "surface-container-high": "#e9e7eb",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#3e2700",
+                        "on-tertiary-fixed-variant": "#5d4217",
+                        "surface-bright": "#fbf8fc",
+                        "primary": "#031635",
+                        "inverse-primary": "#b6c6ef",
+                        "primary-container": "#1a2b4b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#e8c08a",
+                        "on-secondary-fixed-variant": "#004b6f",
+                        "surface-tint": "#4e5e81",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#b08d5b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "xs": "4px",
+                        "sidebar-width": "280px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #c5c6cf;
+            border-radius: 10px;
+        }
+        body {
+            background-color: #fbf8fc;
+            color: #1b1b1e;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen bg-background antialiased font-body-md text-on-background">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col bg-primary text-on-primary docked left-0 h-full w-sidebar-width fixed z-40 shadow-xl transition-all duration-200 ease-in-out p-md">
+<div class="mb-xl flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-white flex items-center justify-center">
+<span class="material-symbols-outlined text-primary font-bold">assessment</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-black text-on-primary">Enterprise Admin</h1>
+<p class="font-label-md text-label-md text-on-primary/70">Global Controller</p>
+</div>
+</div>
+<button class="mb-lg w-full py-sm px-md bg-secondary text-on-secondary rounded-lg font-label-md text-label-md font-bold hover:bg-secondary/90 transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">add</span>
+            Launch New Assessment
+        </button>
+<div class="flex-1 flex flex-col gap-sm overflow-y-auto custom-scrollbar">
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Assessments
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+                Employees
+            </a>
+<!-- Active Tab -->
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm border-l-4 border-secondary font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">database</span>
+                Question Bank
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</div>
+<div class="mt-auto pt-md border-t border-primary-container flex flex-col gap-sm">
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+                Support
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 px-md py-sm hover:bg-primary-container hover:text-on-primary transition-colors rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-sidebar-width min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant shadow-sm fixed top-0 w-full md:w-[calc(100%-280px)] z-30 flex justify-between items-center px-lg h-16 transition-all duration-200">
+<div class="flex items-center gap-md w-full max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-xl pr-sm py-sm rounded border border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring-1 focus:ring-secondary outline-none font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant transition-colors" placeholder="Search questions, categories..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden ml-sm border border-outline-variant cursor-pointer">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCArRYgtJvE24HkwTK03jsUSKnbuYqTmUh4qBJKIX2ytIwTDeyY4LpgIBGcHHlFyHQfBf5u9Zb_ju-7CzwAUOH5b7OXpJQ_r6HmRVSm2d2sO3mCWM1S6DCp6lg8MwWyhTskds0P7MR-3bTzfTDARl6tqM1wtpMVNORtKN-Ifrtlg-58LhLlv_N2YUSSRDF0NC02n5SFSabInu33Hlhwm6KKn9GbfQQOhTL1xwbpYZQL0mpS_gR0oErCHwAhSjOfQPCGMTsShzBoU5I0"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="pt-[88px] px-gutter pb-gutter flex-1 flex flex-col max-w-[1440px] mx-auto w-full gap-lg">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Question Bank</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Manage and organize your assessment content hierarchy.</p>
+</div>
+<button class="bg-secondary text-on-secondary px-lg py-sm rounded-lg font-label-md text-label-md flex items-center gap-xs hover:bg-secondary/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    Add Question
+                </button>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter flex-1 min-h-[600px]">
+<!-- Left Panel: Categories & Topics -->
+<div class="lg:col-span-3 flex flex-col gap-md">
+<!-- Categories Card -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col h-[300px] lg:h-1/2">
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center rounded-t-lg">
+<h3 class="font-title-lg text-title-lg text-on-surface">Categories</h3>
+<button class="text-secondary hover:bg-secondary-fixed rounded p-xs transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-sm custom-scrollbar">
+<ul class="flex flex-col gap-xs">
+<li>
+<button class="w-full text-left px-sm py-sm rounded bg-secondary-container text-on-secondary-container font-label-md text-label-md flex items-center justify-between group">
+<span class="flex items-center gap-sm"><span class="material-symbols-outlined text-[18px]">folder_open</span> Leadership</span>
+<span class="bg-surface-container-lowest text-on-surface-variant px-xs rounded text-[10px]">142</span>
+</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-sm rounded hover:bg-surface-container-high text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between transition-colors">
+<span class="flex items-center gap-sm"><span class="material-symbols-outlined text-[18px]">folder</span> Technical Skills</span>
+<span class="bg-surface-container text-on-surface-variant px-xs rounded text-[10px]">89</span>
+</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-sm rounded hover:bg-surface-container-high text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between transition-colors">
+<span class="flex items-center gap-sm"><span class="material-symbols-outlined text-[18px]">folder</span> Compliance</span>
+<span class="bg-surface-container text-on-surface-variant px-xs rounded text-[10px]">215</span>
+</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-sm rounded hover:bg-surface-container-high text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between transition-colors">
+<span class="flex items-center gap-sm"><span class="material-symbols-outlined text-[18px]">folder</span> Cognitive Ability</span>
+<span class="bg-surface-container text-on-surface-variant px-xs rounded text-[10px]">54</span>
+</button>
+</li>
+</ul>
+</div>
+</div>
+<!-- Topics Sub-panel -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex flex-col h-[300px] lg:h-1/2">
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center rounded-t-lg">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">subdirectory_arrow_right</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Topics in Leadership</h3>
+</div>
+<button class="text-secondary hover:bg-secondary-fixed rounded p-xs transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-sm custom-scrollbar">
+<ul class="flex flex-col gap-xs">
+<li>
+<button class="w-full text-left px-sm py-xs rounded hover:bg-surface-container-high text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between transition-colors">
+<span class="flex items-center gap-sm"><span class="w-2 h-2 rounded-full bg-outline-variant"></span> Conflict Resolution</span>
+<span class="text-on-surface-variant text-[10px]">45</span>
+</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-xs rounded bg-surface-variant text-on-surface font-label-md text-label-md flex items-center justify-between transition-colors">
+<span class="flex items-center gap-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span> Decision Making</span>
+<span class="text-on-surface text-[10px]">32</span>
+</button>
+</li>
+<li>
+<button class="w-full text-left px-sm py-xs rounded hover:bg-surface-container-high text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between transition-colors">
+<span class="flex items-center gap-sm"><span class="w-2 h-2 rounded-full bg-outline-variant"></span> Strategic Planning</span>
+<span class="text-on-surface-variant text-[10px]">65</span>
+</button>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Main Content: Questions List -->
+<div class="lg:col-span-9 flex flex-col gap-md">
+<!-- Filters & Controls -->
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant shadow-sm flex flex-wrap items-center justify-between gap-md">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Filter by Type:</span>
+<div class="flex gap-xs">
+<span class="px-sm py-xs rounded-full bg-secondary-container text-on-secondary-container font-body-sm text-body-sm border border-secondary/20 cursor-pointer flex items-center gap-xs">
+                                    All Types <span class="material-symbols-outlined text-[14px]">close</span>
+</span>
+<span class="px-sm py-xs rounded-full bg-surface text-on-surface-variant font-body-sm text-body-sm border border-outline-variant hover:bg-surface-variant cursor-pointer transition-colors">
+                                    Single Choice
+                                </span>
+<span class="px-sm py-xs rounded-full bg-surface text-on-surface-variant font-body-sm text-body-sm border border-outline-variant hover:bg-surface-variant cursor-pointer transition-colors hidden sm:inline-block">
+                                    Multiple Choice
+                                </span>
+<button class="px-sm py-xs rounded-full bg-surface text-on-surface-variant font-body-sm text-body-sm border border-outline-variant hover:bg-surface-variant cursor-pointer transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">tune</span> More
+                                </button>
+</div>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant font-body-sm text-body-sm">
+<span>Showing 32 questions in <strong>Decision Making</strong></span>
+</div>
+</div>
+<!-- Questions Table Card -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm flex-1 flex flex-col overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold w-12 text-center">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold w-[45%]">Question Text</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold">Type</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold">Difficulty</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold">Last Modified</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest/50 transition-colors group">
+<td class="p-md text-center"><input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="p-md">
+<div class="line-clamp-2 text-on-surface">When faced with a project deadline that is suddenly moved forward by a week, what is the most appropriate first step?</div>
+<div class="text-on-surface-variant text-[12px] mt-xs flex gap-xs items-center">
+<span class="material-symbols-outlined text-[12px]">sell</span>
+                                                Tags: Time Management, Crisis
+                                            </div>
+</td>
+<td class="p-md"><span class="px-2 py-1 rounded bg-primary-fixed text-on-primary-fixed text-[11px] font-semibold tracking-wide">Single Choice</span></td>
+<td class="p-md">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                                Medium
+                                            </div>
+</td>
+<td class="p-md text-on-surface-variant">Oct 24, 2023</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-secondary rounded hover:bg-surface-variant transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-secondary rounded hover:bg-surface-variant transition-colors" title="Preview">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-error rounded hover:bg-error-container transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest/50 transition-colors group">
+<td class="p-md text-center"><input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="p-md">
+<div class="line-clamp-2 text-on-surface">Select all the factors that contribute to a positive team culture during a period of high organizational stress.</div>
+</td>
+<td class="p-md"><span class="px-2 py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed text-[11px] font-semibold tracking-wide">Multiple Choice</span></td>
+<td class="p-md">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                                Hard
+                                            </div>
+</td>
+<td class="p-md text-on-surface-variant">Oct 22, 2023</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-secondary rounded hover:bg-surface-variant transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-secondary rounded hover:bg-surface-variant transition-colors" title="Preview">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-error rounded hover:bg-error-container transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest/50 transition-colors group">
+<td class="p-md text-center"><input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/></td>
+<td class="p-md">
+<div class="line-clamp-2 text-on-surface">Please rate your agreement with the following statement: "I feel confident in delegating critical tasks to junior team members without micromanaging."</div>
+</td>
+<td class="p-md"><span class="px-2 py-1 rounded bg-surface-variant text-on-surface-variant border border-outline-variant text-[11px] font-semibold tracking-wide">Likert Scale</span></td>
+<td class="p-md">
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+                                                Easy
+                                            </div>
+</td>
+<td class="p-md text-on-surface-variant">Sep 15, 2023</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-secondary rounded hover:bg-surface-variant transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-secondary rounded hover:bg-surface-variant transition-colors" title="Preview">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-error rounded hover:bg-error-container transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="mt-auto border-t border-outline-variant p-sm flex items-center justify-between bg-surface-container-lowest">
+<span class="font-body-sm text-body-sm text-on-surface-variant pl-sm">1-3 of 32 items</span>
+<div class="flex gap-xs">
+<button class="p-xs rounded text-on-surface-variant hover:bg-surface-variant disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-xs rounded text-on-surface-variant hover:bg-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

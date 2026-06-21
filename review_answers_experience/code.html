@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Answers - AssessCore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f5f3f6",
+                        "surface-container": "#efedf0",
+                        "surface-dim": "#dbd9dc",
+                        "on-surface": "#1b1b1e",
+                        "surface-variant": "#e4e2e5",
+                        "secondary-fixed": "#cae6ff",
+                        "on-primary-fixed-variant": "#364768",
+                        "tertiary": "#231400",
+                        "primary-fixed-dim": "#b6c6ef",
+                        "outline": "#75777f",
+                        "inverse-surface": "#303033",
+                        "secondary": "#006492",
+                        "on-secondary-fixed": "#001e2f",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#004b6f",
+                        "tertiary-fixed-dim": "#e8c08a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffddb1",
+                        "surface-container-highest": "#e4e2e5",
+                        "tertiary-container": "#3e2700",
+                        "surface-bright": "#fbf8fc",
+                        "secondary-fixed-dim": "#8ccdff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbf8fc",
+                        "on-tertiary-container": "#b08d5b",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#081b3a",
+                        "primary-container": "#1a2b4b",
+                        "on-tertiary-fixed": "#291800",
+                        "on-primary-container": "#8293b8",
+                        "primary": "#031635",
+                        "primary-fixed": "#d8e2ff",
+                        "on-background": "#1b1b1e",
+                        "on-surface-variant": "#44474e",
+                        "inverse-primary": "#b6c6ef",
+                        "on-secondary-container": "#004a6d",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#58bcfd",
+                        "inverse-on-surface": "#f2f0f3",
+                        "on-tertiary-fixed-variant": "#5d4217",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e9e7eb",
+                        "background": "#fbf8fc",
+                        "surface-tint": "#4e5e81",
+                        "outline-variant": "#c5c6cf",
+                        // Extended palette for correct/incorrect/skipped
+                        "success": "#16a34a",
+                        "success-container": "#dcfce7",
+                        "on-success-container": "#14532d",
+                        "warning": "#f59e0b",
+                        "warning-container": "#fef3c7",
+                        "on-warning-container": "#78350f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "sidebar-width": "280px",
+                        "lg": "24px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-container-low text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar (Adapted for specific context: Review Answers) -->
+<header class="bg-surface border-b border-outline-variant shadow-sm fixed top-0 w-full z-50 flex justify-between items-center px-lg h-16">
+<div class="flex items-center gap-lg">
+<button aria-label="Back to Results" class="flex items-center gap-xs text-secondary font-label-md text-label-md hover:bg-surface-container-high px-sm py-xs rounded-md transition-colors">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Back to Results
+            </button>
+<div class="h-6 w-px bg-outline-variant hidden md:block"></div>
+<h1 class="font-title-lg text-title-lg font-bold text-primary hidden md:block">Cybersecurity Fundamentals - Review</h1>
+</div>
+<div class="flex items-center gap-sm">
+<!-- Replacing full nav with contextual info for this transactional view -->
+<div class="text-on-surface-variant font-body-sm text-body-sm hidden sm:block">Score: 85%</div>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary font-label-md text-label-md ml-md">JD</div>
+</div>
+</header>
+<!-- Main Layout -->
+<div class="flex-1 pt-16 flex flex-col md:flex-row max-w-[1440px] mx-auto w-full">
+<!-- Main Content Area (Scrollable Questions) -->
+<main class="flex-1 p-margin-mobile md:p-margin-desktop overflow-y-auto">
+<div class="max-w-3xl mx-auto space-y-xl">
+<!-- Header for mobile -->
+<div class="md:hidden mb-lg">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Cybersecurity Fundamentals</h1>
+<p class="text-on-surface-variant font-body-sm text-body-sm mt-xs">Review your answers.</p>
+</div>
+<!-- Question 1: Correct -->
+<div class="bg-surface-container-lowest rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant overflow-hidden scroll-mt-24" id="q1">
+<div class="px-lg py-sm border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<span class="font-label-md text-label-md text-on-surface-variant">Question 1</span>
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded-full bg-success-container text-on-success-container font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Correct
+                        </span>
+</div>
+<div class="p-lg">
+<h2 class="font-body-lg text-body-lg text-on-surface mb-lg">Which of the following is the primary objective of a phishing attack?</h2>
+<div class="space-y-sm">
+<!-- Correct & Selected Option -->
+<div class="flex items-start gap-md p-md rounded-md border-2 border-success bg-success-container/10">
+<span class="material-symbols-outlined text-success mt-1">check_circle</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">To steal sensitive information by masquerading as a trustworthy entity.</p>
+<p class="font-label-md text-label-md text-success mt-1">Your Answer &amp; Correct Answer</p>
+</div>
+</div>
+<!-- Incorrect Option -->
+<div class="flex items-start gap-md p-md rounded-md border border-outline-variant bg-surface opacity-70">
+<span class="material-symbols-outlined text-outline mt-1">radio_button_unchecked</span>
+<p class="font-body-md text-body-md text-on-surface">To overload a server with traffic until it crashes.</p>
+</div>
+<!-- Incorrect Option -->
+<div class="flex items-start gap-md p-md rounded-md border border-outline-variant bg-surface opacity-70">
+<span class="material-symbols-outlined text-outline mt-1">radio_button_unchecked</span>
+<p class="font-body-md text-body-md text-on-surface">To physically gain access to a secure facility.</p>
+</div>
+</div>
+<div class="mt-lg pt-md border-t border-outline-variant">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs">Explanation</h3>
+<p class="font-body-sm text-body-sm text-on-surface">Phishing relies on social engineering to trick users into revealing credentials or personal data, typically via deceptive emails. Overloading a server is a DoS attack.</p>
+</div>
+</div>
+</div>
+<!-- Question 2: Incorrect -->
+<div class="bg-surface-container-lowest rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-error/50 overflow-hidden scroll-mt-24" id="q2">
+<div class="px-lg py-sm border-b border-outline-variant flex justify-between items-center bg-error-container/20">
+<span class="font-label-md text-label-md text-on-surface-variant">Question 2</span>
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">cancel</span> Incorrect
+                        </span>
+</div>
+<div class="p-lg">
+<h2 class="font-body-lg text-body-lg text-on-surface mb-lg">What does 'MFA' stand for in identity and access management?</h2>
+<div class="space-y-sm">
+<!-- Incorrect & Selected Option -->
+<div class="flex items-start gap-md p-md rounded-md border-2 border-error bg-error-container/10">
+<span class="material-symbols-outlined text-error mt-1">cancel</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Multiple Firewall Architecture</p>
+<p class="font-label-md text-label-md text-error mt-1">Your Answer</p>
+</div>
+</div>
+<!-- Correct Option -->
+<div class="flex items-start gap-md p-md rounded-md border-2 border-success border-dashed bg-success-container/5">
+<span class="material-symbols-outlined text-success mt-1">check_circle</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Multi-Factor Authentication</p>
+<p class="font-label-md text-label-md text-success mt-1">Correct Answer</p>
+</div>
+</div>
+<!-- Incorrect Option -->
+<div class="flex items-start gap-md p-md rounded-md border border-outline-variant bg-surface opacity-70">
+<span class="material-symbols-outlined text-outline mt-1">radio_button_unchecked</span>
+<p class="font-body-md text-body-md text-on-surface">Mandatory File Access</p>
+</div>
+</div>
+<div class="mt-lg pt-md border-t border-outline-variant bg-surface-container-low p-sm rounded-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs">Explanation</h3>
+<p class="font-body-sm text-body-sm text-on-surface">MFA (Multi-Factor Authentication) requires users to provide two or more verification factors to gain access to a resource, significantly increasing security over just a password.</p>
+</div>
+</div>
+</div>
+<!-- Question 3: Skipped -->
+<div class="bg-surface-container-lowest rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant overflow-hidden scroll-mt-24" id="q3">
+<div class="px-lg py-sm border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<span class="font-label-md text-label-md text-on-surface-variant">Question 3</span>
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[14px]">remove</span> Skipped
+                        </span>
+</div>
+<div class="p-lg">
+<h2 class="font-body-lg text-body-lg text-on-surface mb-lg">Which encryption protocol is currently the standard for securing website traffic (HTTPS)?</h2>
+<div class="space-y-sm">
+<!-- Correct Option -->
+<div class="flex items-start gap-md p-md rounded-md border-2 border-success border-dashed bg-success-container/5">
+<span class="material-symbols-outlined text-success mt-1">check_circle</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">TLS (Transport Layer Security)</p>
+<p class="font-label-md text-label-md text-success mt-1">Correct Answer</p>
+</div>
+</div>
+<!-- Option -->
+<div class="flex items-start gap-md p-md rounded-md border border-outline-variant bg-surface">
+<span class="material-symbols-outlined text-outline mt-1">radio_button_unchecked</span>
+<p class="font-body-md text-body-md text-on-surface">SSL (Secure Sockets Layer)</p>
+</div>
+<!-- Option -->
+<div class="flex items-start gap-md p-md rounded-md border border-outline-variant bg-surface">
+<span class="material-symbols-outlined text-outline mt-1">radio_button_unchecked</span>
+<p class="font-body-md text-body-md text-on-surface">WEP (Wired Equivalent Privacy)</p>
+</div>
+</div>
+<div class="mt-lg pt-md border-t border-outline-variant">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs">Explanation</h3>
+<p class="font-body-sm text-body-sm text-on-surface">While often colloquially called SSL, TLS is the modern, secure protocol standard used to encrypt communications over a computer network, particularly web traffic.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Sidebar (Question Navigator) -->
+<aside class="w-full md:w-[320px] bg-surface border-l border-outline-variant flex flex-col md:h-[calc(100vh-64px)] md:sticky md:top-16">
+<div class="p-lg border-b border-outline-variant bg-surface-container-low hidden md:block">
+<h2 class="font-title-lg text-title-lg font-bold text-primary">Question Navigator</h2>
+<div class="flex gap-sm mt-sm">
+<span class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant"><span class="w-3 h-3 rounded-full bg-success"></span> Correct</span>
+<span class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant"><span class="w-3 h-3 rounded-full bg-error"></span> Incorrect</span>
+</div>
+</div>
+<div class="p-lg overflow-y-auto flex-1">
+<div class="grid grid-cols-5 md:grid-cols-4 gap-sm">
+<!-- Correct -->
+<a class="aspect-square rounded-md flex flex-col items-center justify-center border-2 border-success bg-success-container/20 text-success hover:bg-success-container/40 transition-colors" href="#q1">
+<span class="font-label-md text-label-md">1</span>
+<span class="material-symbols-outlined text-[16px]">check</span>
+</a>
+<!-- Incorrect -->
+<a class="aspect-square rounded-md flex flex-col items-center justify-center border-2 border-error bg-error-container/20 text-error hover:bg-error-container/40 transition-colors" href="#q2">
+<span class="font-label-md text-label-md">2</span>
+<span class="material-symbols-outlined text-[16px]">close</span>
+</a>
+<!-- Skipped -->
+<a class="aspect-square rounded-md flex flex-col items-center justify-center border-2 border-outline bg-surface-variant text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#q3">
+<span class="font-label-md text-label-md">3</span>
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</a>
+<!-- Dummy remaining questions -->
+<div class="aspect-square rounded-md flex flex-col items-center justify-center border border-success bg-success-container/10 text-success opacity-70">
+<span class="font-label-md text-label-md">4</span>
+</div>
+<div class="aspect-square rounded-md flex flex-col items-center justify-center border border-success bg-success-container/10 text-success opacity-70">
+<span class="font-label-md text-label-md">5</span>
+</div>
+<div class="aspect-square rounded-md flex flex-col items-center justify-center border border-error bg-error-container/10 text-error opacity-70">
+<span class="font-label-md text-label-md">6</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</body></html>

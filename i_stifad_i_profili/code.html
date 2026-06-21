@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employee Profile - AssessCore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#58bcfd",
+                      "inverse-on-surface": "#f2f0f3",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#e9e7eb",
+                      "on-tertiary-fixed-variant": "#5d4217",
+                      "error": "#ba1a1a",
+                      "surface-tint": "#4e5e81",
+                      "outline-variant": "#c5c6cf",
+                      "background": "#fbf8fc",
+                      "secondary-fixed-dim": "#8ccdff",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fbf8fc",
+                      "on-primary-fixed": "#081b3a",
+                      "primary-container": "#1a2b4b",
+                      "on-tertiary-fixed": "#291800",
+                      "on-primary-container": "#8293b8",
+                      "on-tertiary-container": "#b08d5b",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#d8e2ff",
+                      "on-background": "#1b1b1e",
+                      "primary": "#031635",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#44474e",
+                      "inverse-primary": "#b6c6ef",
+                      "on-secondary-container": "#004a6d",
+                      "secondary": "#006492",
+                      "on-secondary-fixed-variant": "#004b6f",
+                      "on-secondary-fixed": "#001e2f",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#ffddb1",
+                      "tertiary-fixed-dim": "#e8c08a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#fbf8fc",
+                      "surface-container-highest": "#e4e2e5",
+                      "tertiary-container": "#3e2700",
+                      "surface-variant": "#e4e2e5",
+                      "secondary-fixed": "#cae6ff",
+                      "surface-container-low": "#f5f3f6",
+                      "surface-container": "#efedf0",
+                      "surface-dim": "#dbd9dc",
+                      "on-surface": "#1b1b1e",
+                      "tertiary": "#231400",
+                      "on-primary-fixed-variant": "#364768",
+                      "primary-fixed-dim": "#b6c6ef",
+                      "inverse-surface": "#303033",
+                      "outline": "#75777f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "sm": "8px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "unit": "4px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "sidebar-width": "280px",
+                      "xl": "32px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                      "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                      "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                      "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-surface'); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined[data-weight="fill"] { font-variation-settings: 'FILL' 1; }
+        .card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body class="font-body-md antialiased min-h-screen flex">
+<!-- SideNavBar (Hidden on Mobile) -->
+<nav class="hidden md:flex bg-primary text-on-primary font-body-md fixed left-0 top-0 h-full w-sidebar-width shadow-md flex-col z-50">
+<!-- Brand/Header -->
+<div class="px-lg py-xl border-b border-primary-fixed-dim/20">
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary tracking-tight">AssessCore</h1>
+<p class="font-body-sm text-body-sm text-on-primary/70 mt-1">Enterprise Suite</p>
+</div>
+<!-- Main Tabs -->
+<div class="flex-1 py-lg flex flex-col gap-sm overflow-y-auto">
+<button class="w-[calc(100%-32px)] mx-md text-center py-sm bg-secondary text-on-secondary rounded-lg font-label-md text-label-md mb-md hover:bg-secondary/90 transition-colors">
+                New Assessment
+            </button>
+<!-- Tab: Dashboard -->
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<!-- Tab: Assessments -->
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                Assessments
+            </a>
+<!-- Tab: Employees (Active for User Profile context) -->
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container border-l-4 border-on-secondary-container px-lg py-md active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group" data-weight="fill">group</span>
+                Employees
+            </a>
+<!-- Tab: Reports -->
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Reports
+            </a>
+<!-- Tab: Settings -->
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+<!-- Footer Tabs -->
+<div class="py-md border-t border-primary-fixed-dim/20">
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- TopAppBar (Hidden on Mobile) -->
+<header class="hidden md:flex bg-surface text-primary font-title-lg fixed top-0 right-0 w-[calc(100%-theme(spacing.sidebar-width))] h-16 border-b border-outline-variant justify-between items-center px-lg z-40">
+<!-- Contextual Title instead of Brand Logo since it's already in SideNav -->
+<div class="font-title-lg text-title-lg text-on-surface">
+            Employee Profile
+        </div>
+<div class="flex items-center gap-md">
+<!-- Search placeholder if needed -->
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="pl-8 pr-sm py-xs rounded-full border border-outline-variant bg-surface-container-low text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none w-64 transition-all" placeholder="Search AssessCore..." type="text"/>
+</div>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full cursor-pointer flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full cursor-pointer flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-sm ml-sm cursor-pointer border border-outline-variant">
+                JD
+            </div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-sidebar-width w-full md:mt-16 bg-background pb-24 md:pb-lg">
+<!-- Mobile Header (Visible only on Mobile) -->
+<header class="md:hidden bg-surface py-md px-margin-mobile border-b border-outline-variant flex justify-between items-center sticky top-0 z-40 shadow-sm">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary tracking-tight">AssessCore</h1>
+<div class="h-8 w-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-sm">
+                JD
+            </div>
+</header>
+<div class="max-w-[1440px] mx-auto p-margin-mobile md:p-margin-desktop space-y-gutter">
+<!-- Mobile Page Title -->
+<div class="md:hidden">
+<h2 class="font-title-lg text-title-lg text-on-surface">Employee Profile</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Manage your personal information and settings.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Avatar & Quick Info (Spans 4 cols on Desktop) -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Avatar Card -->
+<div class="bg-surface-container-lowest rounded-lg card-shadow border border-outline-variant overflow-hidden flex flex-col items-center text-center">
+<div class="w-full h-24 bg-surface-tint opacity-10 relative">
+<!-- Subtle background pattern instead of image -->
+<div class="absolute inset-0" style="background-image: radial-gradient(var(--tw-colors-secondary-container) 1px, transparent 1px); background-size: 16px 16px;"></div>
+</div>
+<div class="relative -mt-12 mb-md">
+<div class="w-24 h-24 rounded-full border-4 border-surface-container-lowest bg-surface-container-high overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate employee. Clean lighting, neutral grey background, wearing a neat business casual outfit. Corporate Modern aesthetic, instilling a sense of professionalism and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJVX3TaTnj5nzhSXZ4luYkbrsGZn69dhfwcrcnlSlPU7t5EotYO-kG17140E4csjDLkB9PPGgi1XVmxC2M6ZVBSI__FBYTSBQ5hWPgkGN-sPr1PQGiYYDXla1VHu7P3FftBfUtMmIrL35jsoYGK9dPbcW2GXtF9-xzFp42-pvtOD5LIlfeSesjbzbpMlGbWHB0GeUS0AXu21q05KyUYsklmMIokl8B1mnlLKXcb1MHUU8hwPR5vUvtFv38Jg0_1M2XFpkG1i--VYVb"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-secondary text-on-secondary p-xs rounded-full shadow-md hover:bg-secondary/90 transition-colors border-2 border-surface-container-lowest flex items-center justify-center w-8 h-8">
+<span class="material-symbols-outlined text-[16px]" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<div class="px-lg pb-lg">
+<h3 class="font-title-lg text-title-lg text-on-surface">Jane Doe</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Senior Data Analyst</p>
+<div class="mt-md flex gap-sm justify-center">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-md text-label-md border border-secondary-container/30">
+<span class="material-symbols-outlined text-[14px]">verified</span> Active
+                                </span>
+</div>
+</div>
+</div>
+<!-- Skill Matrix / Badges Card -->
+<div class="bg-surface-container-lowest rounded-lg card-shadow border border-outline-variant p-lg">
+<div class="border-b border-outline-variant/50 pb-sm mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">workspace_premium</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Certifications &amp; Badges</h3>
+</div>
+<div class="space-y-md">
+<!-- Badge Item -->
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-weight="fill">security</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface mb-xs">Data Privacy L3</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 100%"></div>
+</div>
+</div>
+</div>
+<!-- Badge Item -->
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-weight="fill">database</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface mb-xs">Advanced SQL Admin</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<!-- Badge Item -->
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">Leadership Principles (In Progress)</p>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-outline h-full" style="width: 40%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Forms (Spans 8 cols on Desktop) -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Personal Information Card -->
+<div class="bg-surface-container-lowest rounded-lg card-shadow border border-outline-variant p-lg">
+<div class="border-b border-outline-variant/50 pb-sm mb-lg">
+<h3 class="font-title-lg text-title-lg text-on-surface">Personal Information</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Update your basic profile details.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Field: First Name -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="first-name">First Name</label>
+<input class="w-full px-md py-sm bg-surface rounded border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors font-body-md text-body-md text-on-surface" id="first-name" type="text" value="Jane"/>
+</div>
+<!-- Field: Last Name -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="last-name">Last Name</label>
+<input class="w-full px-md py-sm bg-surface rounded border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors font-body-md text-body-md text-on-surface" id="last-name" type="text" value="Doe"/>
+</div>
+<!-- Field: Email -->
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface" for="email">Email Address</label>
+<input class="w-full px-md py-sm bg-surface rounded border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors font-body-md text-body-md text-on-surface" id="email" type="email" value="jane.doe@assesscore.com"/>
+</div>
+<!-- Field: Department -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="department">Department</label>
+<select class="w-full px-md py-sm bg-surface rounded border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors font-body-md text-body-md text-on-surface appearance-none" id="department">
+<option value="data">Data &amp; Analytics</option>
+<option value="engineering">Engineering</option>
+<option value="hr">Human Resources</option>
+</select>
+</div>
+<!-- Field: Position -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="position">Position</label>
+<input class="w-full px-md py-sm bg-surface-container-low rounded border border-outline-variant/50 text-on-surface-variant font-body-md text-body-md cursor-not-allowed" id="position" readonly="" type="text" value="Senior Data Analyst"/>
+<span class="font-body-sm text-[11px] text-outline mt-1">Position title is managed by HR.</span>
+</div>
+<!-- Action -->
+<div class="md:col-span-2 mt-sm flex justify-end">
+<button class="bg-secondary text-on-secondary px-lg py-sm rounded-lg font-label-md text-label-md hover:bg-secondary/90 transition-colors shadow-sm" type="button">
+                                    Save Changes
+                                </button>
+</div>
+</form>
+</div>
+<!-- Password Management Card -->
+<div class="bg-surface-container-lowest rounded-lg card-shadow border border-outline-variant p-lg">
+<div class="border-b border-outline-variant/50 pb-sm mb-lg">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+                                Password Management
+                            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Ensure your account uses a long, random password to stay secure.</p>
+</div>
+<form class="max-w-md space-y-md">
+<!-- Field: Current Password -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="current-pwd">Current Password</label>
+<input class="w-full px-md py-sm bg-surface rounded border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors font-body-md text-body-md text-on-surface" id="current-pwd" type="password"/>
+</div>
+<!-- Field: New Password -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="new-pwd">New Password</label>
+<input class="w-full px-md py-sm bg-surface rounded border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors font-body-md text-body-md text-on-surface" id="new-pwd" type="password"/>
+</div>
+<!-- Field: Confirm Password -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="confirm-pwd">Confirm New Password</label>
+<input class="w-full px-md py-sm bg-surface rounded border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-colors font-body-md text-body-md text-on-surface" id="confirm-pwd" type="password"/>
+</div>
+<!-- Action -->
+<div class="mt-lg">
+<button class="border border-secondary text-secondary px-lg py-sm rounded-lg font-label-md text-label-md hover:bg-secondary/5 transition-colors bg-transparent" type="button">
+                                    Update Password
+                                </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Visible only on Mobile) -->
+<nav class="md:hidden bg-surface flex justify-around items-center h-16 px-md fixed bottom-0 w-full z-50 rounded-t-xl border-t border-outline-variant shadow-[0_-4px_20px_rgba(0,0,0,0.05)] text-label-md font-label-md">
+<!-- Tab: Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-transform active:scale-90 w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="text-[10px]">Home</span>
+</a>
+<!-- Tab: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-transform active:scale-90 w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="checklist">checklist</span>
+<span class="text-[10px]">Tests</span>
+</a>
+<!-- Tab: Team (Profile fits best under Team or Profile directly if available, mapping to Profile based on labels) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-transform active:scale-90 w-16 h-full rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="badge">badge</span>
+<span class="text-[10px]">Team</span>
+</a>
+<!-- Tab: Profile (Active Context) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-transform active:scale-90 h-12 my-auto" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person" data-weight="fill">person</span>
+<span class="text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>

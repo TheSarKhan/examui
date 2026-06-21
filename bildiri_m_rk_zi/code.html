@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AssessCore - Notifications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#58bcfd",
+                        "inverse-on-surface": "#f2f0f3",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e9e7eb",
+                        "on-tertiary-fixed-variant": "#5d4217",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#4e5e81",
+                        "outline-variant": "#c5c6cf",
+                        "background": "#fbf8fc",
+                        "secondary-fixed-dim": "#8ccdff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbf8fc",
+                        "on-primary-fixed": "#081b3a",
+                        "primary-container": "#1a2b4b",
+                        "on-tertiary-fixed": "#291800",
+                        "on-primary-container": "#8293b8",
+                        "on-tertiary-container": "#b08d5b",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#d8e2ff",
+                        "on-background": "#1b1b1e",
+                        "primary": "#031635",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#44474e",
+                        "inverse-primary": "#b6c6ef",
+                        "on-secondary-container": "#004a6d",
+                        "secondary": "#006492",
+                        "on-secondary-fixed-variant": "#004b6f",
+                        "on-secondary-fixed": "#001e2f",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffddb1",
+                        "tertiary-fixed-dim": "#e8c08a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fbf8fc",
+                        "surface-container-highest": "#e4e2e5",
+                        "tertiary-container": "#3e2700",
+                        "surface-variant": "#e4e2e5",
+                        "secondary-fixed": "#cae6ff",
+                        "surface-container-low": "#f5f3f6",
+                        "surface-container": "#efedf0",
+                        "surface-dim": "#dbd9dc",
+                        "on-surface": "#1b1b1e",
+                        "tertiary": "#231400",
+                        "on-primary-fixed-variant": "#364768",
+                        "primary-fixed-dim": "#b6c6ef",
+                        "inverse-surface": "#303033",
+                        "outline": "#75777f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "sidebar-width": "280px",
+                        "xl": "32px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col h-full bg-primary dark:bg-primary-container fixed left-0 top-0 w-sidebar-width shadow-md z-40">
+<div class="p-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">AssessCore</h1>
+<p class="font-body-sm text-body-sm text-on-primary/70">Enterprise Suite</p>
+</div>
+<div class="px-lg pb-md">
+<button class="w-full bg-[#006492] hover:bg-[#004a6d] text-white font-label-md text-label-md py-sm rounded-lg transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Assessment
+            </button>
+</div>
+<ul class="flex-1 mt-md">
+<li>
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-body-md text-body-md">Assessments</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Employees</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-md hover:bg-primary-fixed-dim/10 transition-colors active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto mb-lg">
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-sm hover:bg-primary-fixed-dim/10 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-sm text-body-sm">Help Center</span>
+</a>
+<a class="flex items-center gap-md text-on-primary/70 hover:text-on-primary px-lg py-sm hover:bg-primary-fixed-dim/10 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-sm text-body-sm">Logout</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="hidden md:flex justify-between items-center px-lg h-16 fixed top-0 right-0 w-[calc(100%-theme(spacing.sidebar-width))] bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline z-30">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
+<!-- AssessCore is in sidebar on desktop, but keeping space for alignment if needed -->
+</div>
+<div class="flex items-center gap-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-sm rounded-full bg-surface-container-low border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary text-body-sm font-body-sm w-64 transition-colors" placeholder="Search..." type="text"/>
+</div>
+<button class="p-sm text-primary font-bold border-b-2 border-primary hover:bg-surface-container-high transition-colors cursor-pointer rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer rounded-full">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-sm border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A small, professional headshot portrait of a corporate employee in their 30s, looking confidently at the camera. The lighting is bright and even, set against a solid neutral light blue background, consistent with a clean, modern SaaS enterprise profile picture aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4XHJECF_qIy6v-HcgWIqOA5WglOlJCK2iYXweILpYeqvLruFwM9U90M4b0RL54Q_aAFZ6Gti2rECVEM0Kn5td9GV0JZMMQoHkN0NGa4mI9kWBiaWpvd_Degk1KzftYA2PGdH8RFnefsTeSuFPTjIa48F218YrgGiVOt7uchhsG0gK5GO5rxm5_HtCl2MExlixw-OeXPPnF3TnevriUs8K3NlRlAuJdZQNKW96lQDF5kJrSrRrhbyc5qo9Ivj1QdxIE7PFm8wGm1Jp"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="md:ml-sidebar-width pt-16 pb-20 md:pb-8 min-h-screen">
+<div class="max-w-[1440px] mx-auto p-margin-mobile md:p-margin-desktop">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-lg gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Notifications</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Stay updated on assessments and system activity.</p>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto">
+<div class="flex bg-surface-container-low rounded-lg p-xs border border-outline-variant">
+<button class="px-md py-xs rounded text-sm font-label-md bg-white shadow-sm text-primary">All</button>
+<button class="px-md py-xs rounded text-sm font-label-md text-on-surface-variant hover:text-on-surface">Unread</button>
+<button class="px-md py-xs rounded text-sm font-label-md text-on-surface-variant hover:text-on-surface">Important</button>
+</div>
+<button class="text-secondary font-label-md text-label-md hover:underline bg-transparent">Mark all as read</button>
+</div>
+</div>
+<!-- Notifications List -->
+<div class="bg-surface-container-lowest rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant/50 overflow-hidden">
+<!-- Unread Notification (Assignment) -->
+<div class="flex gap-md p-md md:p-lg border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors bg-primary-fixed-dim/5 relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="flex-shrink-0 mt-1">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">New Leadership Assessment Assigned</h3>
+<span class="font-label-md text-label-md text-secondary whitespace-nowrap ml-4">10 min ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">You have been assigned the Q3 Executive Leadership Evaluation. Please complete by October 15th.</p>
+<div class="mt-sm">
+<button class="text-sm font-label-md text-secondary hover:text-on-secondary-container">View Assignment</button>
+</div>
+</div>
+</div>
+<!-- Unread Notification (Alert) -->
+<div class="flex gap-md p-md md:p-lg border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors bg-primary-fixed-dim/5 relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="flex-shrink-0 mt-1">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Incomplete Data Profile</h3>
+<span class="font-label-md text-label-md text-secondary whitespace-nowrap ml-4">1 hr ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Your user profile is missing critical departmental information required for accurate assessment routing.</p>
+</div>
+</div>
+<!-- Read Notification (Success) -->
+<div class="flex gap-md p-md md:p-lg border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors opacity-80">
+<div class="flex-shrink-0 mt-1">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">Candidate Screening Completed</h3>
+<span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap ml-4">Yesterday</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Sarah Jenkins has completed the Technical Competency Exam. Scores are now available for review.</p>
+</div>
+</div>
+<!-- Read Notification (Info) -->
+<div class="flex gap-md p-md md:p-lg hover:bg-surface-container-low transition-colors opacity-80">
+<div class="flex-shrink-0 mt-1">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">info</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-surface">System Maintenance Notice</h3>
+<span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap ml-4">Oct 1</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">AssessCore will undergo scheduled maintenance on Sunday from 2 AM to 4 AM EST. Expect minor disruptions.</p>
+</div>
+</div>
+</div>
+<div class="mt-lg flex justify-center">
+<button class="bg-transparent border border-outline text-on-surface font-label-md text-label-md py-sm px-lg rounded-lg hover:bg-surface-container-high transition-colors">
+                    Load More
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface dark:bg-surface-container border-t border-outline-variant shadow-[0_-4px_20px_rgba(0,0,0,0.05)] flex justify-around items-center h-16 px-md">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-highest transition-transform active:scale-90 w-16 h-full" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-highest transition-transform active:scale-90 w-16 h-full" href="#">
+<span class="material-symbols-outlined">checklist</span>
+<span class="font-label-md text-[10px] mt-1">Tests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-highest transition-transform active:scale-90 w-16 h-full" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-label-md text-[10px] mt-1">Team</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-highest transition-transform active:scale-90 w-16 h-full" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
